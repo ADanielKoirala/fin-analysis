@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Family Financial Report</title>
+<style>
+  :root {
+    --bg: #f7f7f5;
+    --bg-card: #ffffff;
+    --text: #1a1a1a;
+    --text-muted: #5a5a5a;
+    --accent: #2a5d8f;
+    --border: #e2e2e0;
+    --pill-bg: #eef3f8;
+    --pill-text: #2a5d8f;
+    --warn-bg: #fff8e6;
+    --warn-border: #e8d9a8;
+    --unavailable: #9a9a9a;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14161a;
+      --bg-card: #1d2025;
+      --text: #ececec;
+      --text-muted: #a3a3a3;
+      --accent: #7bb0e0;
+      --border: #2c2f36;
+      --pill-bg: #223142;
+      --pill-text: #9cc4ea;
+      --warn-bg: #2a2510;
+      --warn-border: #4d431f;
+      --unavailable: #7a7a7a;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 2.5rem 1.5rem 4rem;
+  }
+  header {
+    margin-bottom: 2rem;
+  }
+  h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0 0 0.5rem;
+    letter-spacing: -0.02em;
+  }
+  .subtitle {
+    color: var(--text-muted);
+    font-size: 1rem;
+    margin: 0 0 1rem;
+  }
+  .updated {
+    display: inline-block;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    background: var(--pill-bg);
+    padding: 0.3rem 0.7rem;
+    border-radius: 999px;
+  }
+  .disclaimer {
+    margin-top: 1.5rem;
+    padding: 1rem 1.2rem;
+    background: var(--warn-bg);
+    border: 1px solid var(--warn-border);
+    border-radius: 10px;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+  }
+  .disclaimer strong { color: var(--text); }
+  .company {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 1.75rem;
+    margin-bottom: 1.5rem;
+  }
+  .company-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 0.25rem;
+  }
+  .company-name {
+    font-size: 1.35rem;
+    font-weight: 700;
+    margin: 0;
+  }
+  .ticker {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--pill-text);
+    background: var(--pill-bg);
+    padding: 0.15rem 0.6rem;
+    border-radius: 999px;
+  }
+  .period {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin: 0 0 1.25rem;
+  }
+  .metrics {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem 1.5rem;
+    margin-bottom: 1.25rem;
+  }
+  .metric dt {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+    margin-bottom: 0.2rem;
+  }
+  .metric dd {
+    margin: 0;
+    font-size: 0.98rem;
+  }
+  .metric dd.unavailable {
+    color: var(--unavailable);
+    font-style: italic;
+  }
+  .note-block {
+    border-top: 1px solid var(--border);
+    padding-top: 1rem;
+    margin-top: 0.5rem;
+  }
+  .note-block h4 {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+    margin: 0 0 0.35rem;
+  }
+  .note-block p {
+    margin: 0 0 0.75rem;
+    font-size: 0.95rem;
+  }
+  .sentiment {
+    font-size: 0.9rem;
+    color: var(--accent);
+    font-style: italic;
+  }
+  footer {
+    margin-top: 2.5rem;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    text-align: center;
+  }
+  a { color: var(--accent); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Family Financial Report</h1>
+    <p class="subtitle">This page tracks a handful of companies currently seeing heightened retail investor and social-media discussion, alongside their latest real, publicly reported financial results. It's compiled for informational and family-discussion purposes only.</p>
+    <span class="updated">Last updated: August 19, 2026</span>
+    <div class="disclaimer">
+      <strong>Not investment advice.</strong> This page is a casual reference for household conversation, not a recommendation to buy, sell, or hold any security. Figures are drawn from company filings and public reporting believed accurate as of the update date but may change or be revised. Always do your own research (or talk to a licensed advisor) before making any financial decision.
+    </div>
+  </header>
+
+  <section class="company">
+    <div class="company-head">
+      <h3 class="company-name">Super Micro Computer, Inc.</h3>
+      <span class="ticker">SMCI</span>
+    </div>
+    <p class="period">Fiscal Q4 2026 (quarter ended June 30, 2026) &mdash; reported August 11, 2026</p>
+    <dl class="metrics">
+      <div class="metric"><dt>Revenue &amp; YoY growth</dt><dd>$11.1B, up 93% YoY. Full-year FY2026 revenue $39.1B, up 78%.</dd></div>
+      <div class="metric"><dt>Gross / operating margin</dt><dd>Non-GAAP gross margin 17.6%; full-year non-GAAP operating margin 8.1% (up from 7.1% in FY2025).</dd></div>
+      <div class="metric"><dt>Net income &amp; EPS</dt><dd>GAAP net income $1,178M; GAAP diluted EPS $1.62. Non-GAAP diluted EPS $1.70, well above the ~$0.71 analyst consensus.</dd></div>
+      <div class="metric"><dt>Free cash flow</dt><dd>+$722M for the quarter; full-year operating cash flow was negative $6.8B on inventory build.</dd></div>
+      <div class="metric"><dt>Cash &amp; debt</dt><dd>Cash &amp; equivalents $7.5B; total debt (bank + convertibles) $8.7B; net debt ~$1.2B.</dd></div>
+      <div class="metric"><dt>Stock performance</dt><dd>Up roughly 18% over the past month to ~$37, still about 33% below its 52-week high. Forward P/E ~8.6&ndash;9x.</dd></div>
+    </dl>
+    <div class="note-block">
+      <h4>Guidance &amp; commentary</h4>
+      <p>Management guided FY2027 revenue to $65B&ndash;$72B (above ~$52.5B consensus) and Q1 FY2027 revenue of $14.5B&ndash;$15.5B, citing over $60B in new orders and describing the Q4 revenue shortfall as a timing issue rather than a demand issue.</p>
+      <p class="sentiment">Currently seeing heightened retail investor and social-media discussion, consistent with its status as a closely watched AI-infrastructure stock.</p>
+    </div>
+  </section>
+
+  <section class="company">
+    <div class="company-head">
+      <h3 class="company-name">SanDisk Corporation</h3>
+      <span class="ticker">SNDK</span>
+    </div>
+    <p class="period">Fiscal Q4 2026 (quarter ended July 3, 2026) &mdash; reported August 5, 2026</p>
+    <dl class="metrics">
+      <div class="metric"><dt>Revenue &amp; YoY growth</dt><dd>$8.97B, up 372% YoY and 51% sequentially, driven by AI datacenter demand and NAND pricing.</dd></div>
+      <div class="metric"><dt>Gross / operating margin</dt><dd>Non-GAAP gross margin 84.6% (vs. 26.4% a year ago). Operating income ~$7.0B (~78% margin; GAAP/non-GAAP basis not fully specified in reporting).</dd></div>
+      <div class="metric"><dt>Net income &amp; EPS</dt><dd>GAAP net income $6.90B; GAAP diluted EPS $43.97. Non-GAAP diluted EPS $39.25, beating consensus of roughly $34.45&ndash;$34.96.</dd></div>
+      <div class="metric"><dt>Free cash flow</dt><dd>~$7.08B reported; company-defined adjusted FCF (excluding prepayments) was $5.04B.</dd></div>
+      <div class="metric"><dt>Cash &amp; debt</dt><dd>Cash &amp; equivalents ~$4.76B; long-term debt reduced to $0 (debt-free balance sheet).</dd></div>
+      <div class="metric"><dt>Stock performance</dt><dd>Trading near $1,580&ndash;$1,625, up roughly 30% over the past month but over 30% below its June 52-week high. Forward P/E ~34x.</dd></div>
+    </dl>
+    <div class="note-block">
+      <h4>Guidance &amp; commentary</h4>
+      <p>For fiscal Q1 2027, guided revenue of $10.3B&ndash;$10.8B (below the ~$11.16B analyst estimate) and non-GAAP EPS of $44&ndash;$46, with non-GAAP gross margin guided at 83&ndash;85%. Management cited "record financial results" and datacenter demand as a growing pillar; the board approved a $14B share buyback.</p>
+      <p class="sentiment">Currently seeing heightened retail investor and social-media discussion, elevated relative to typical large-cap names.</p>
+    </div>
+  </section>
+
+  <section class="company">
+    <div class="company-head">
+      <h3 class="company-name">Nebius Group N.V.</h3>
+      <span class="ticker">NBIS</span>
+    </div>
+    <p class="period">Q2 2026 (quarter ended June 30, 2026) &mdash; reported August 12, 2026</p>
+    <dl class="metrics">
+      <div class="metric"><dt>Revenue &amp; YoY growth</dt><dd>$582.3M, up 454% YoY (+46% QoQ). Core AI segment revenue up 514% YoY; ARR run-rate ~$3B.</dd></div>
+      <div class="metric"><dt>Gross / operating margin</dt><dd class="unavailable">GAAP gross/operating margin not clearly disclosed &mdash; unavailable. Adjusted EBITDA margin 41% group-wide (AI segment ~50%).</dd></div>
+      <div class="metric"><dt>Net income &amp; EPS</dt><dd>GAAP net loss $190.4M (vs. a $502.5M profit a year ago, which included one-off items); GAAP diluted EPS &minus;$0.68. Non-GAAP adjusted EPS +$0.12.</dd></div>
+      <div class="metric"><dt>Free cash flow</dt><dd class="unavailable">Operating cash flow was $2.25B; a distinct free-cash-flow figure is unavailable given heavy capex.</dd></div>
+      <div class="metric"><dt>Cash &amp; debt</dt><dd>Cash &amp; equivalents $8.04B (up from $3.68B at year-end 2025); total debt ~$8.5B.</dd></div>
+      <div class="metric"><dt>Stock performance</dt><dd>Traded near $225 on August 19, down about 9.5% that session after a new $4.5B convertible notes offering. Up roughly 246% over the past year. Forward P/E ~244x (reflects expected near-term losses).</dd></div>
+    </dl>
+    <div class="note-block">
+      <h4>Guidance &amp; commentary</h4>
+      <p>Management reaffirmed full-year 2026 guidance of $3.0B&ndash;$3.4B revenue, roughly 40% EBITDA margin, and $20B&ndash;$25B in capital expenditure.</p>
+      <p class="sentiment">Currently seeing heightened retail investor and social-media discussion, notably elevated this week amid the earnings report and the new debt offering.</p>
+    </div>
+  </section>
+
+  <section class="company">
+    <div class="company-head">
+      <h3 class="company-name">Reddit, Inc.</h3>
+      <span class="ticker">RDDT</span>
+    </div>
+    <p class="period">Q2 2026 (quarter ended June 30, 2026) &mdash; reported July 30, 2026</p>
+    <dl class="metrics">
+      <div class="metric"><dt>Revenue &amp; YoY growth</dt><dd>$805M, up 61% YoY &mdash; the eighth straight quarter of 60%+ growth; beat the ~$745M consensus.</dd></div>
+      <div class="metric"><dt>Gross / operating margin</dt><dd>Gross margin 91.3% (+50bps YoY). Operating margin unavailable; adjusted EBITDA margin was 43% ($343M).</dd></div>
+      <div class="metric"><dt>Net income &amp; EPS</dt><dd>Net income $253M (~31% net margin), vs. $89M a year ago. GAAP diluted EPS $1.25, beating the ~$0.96&ndash;$0.97 consensus.</dd></div>
+      <div class="metric"><dt>Free cash flow</dt><dd>$261M, more than double the prior year; operating cash flow $262M (33% margin).</dd></div>
+      <div class="metric"><dt>Cash &amp; debt</dt><dd>Cash, equivalents &amp; marketable securities $2.79B; company reports no long-term debt (debt-free).</dd></div>
+      <div class="metric"><dt>Stock performance</dt><dd>Fell ~12.5% on the earnings print, then jumped ~12&ndash;13% around August 13&ndash;14 on S&amp;P 500 inclusion news; trading near $156&ndash;158 on August 19. Forward P/E ~29.5&ndash;29.8x.</dd></div>
+    </dl>
+    <div class="note-block">
+      <h4>Guidance &amp; commentary</h4>
+      <p>Q3 2026 revenue guided to $860M&ndash;$870M (47&ndash;49% YoY growth); adjusted EBITDA guided to $385M&ndash;$395M. The company was added to the S&amp;P 500 index effective August 18, 2026.</p>
+      <p class="sentiment">Currently seeing heightened retail investor and social-media discussion, accompanying the earnings swings and index-inclusion news.</p>
+    </div>
+  </section>
+
+  <section class="company">
+    <div class="company-head">
+      <h3 class="company-name">CoreWeave, Inc.</h3>
+      <span class="ticker">CRWV</span>
+    </div>
+    <p class="period">Q2 2026 (quarter ended June 30, 2026) &mdash; reported August 11, 2026</p>
+    <dl class="metrics">
+      <div class="metric"><dt>Revenue &amp; YoY growth</dt><dd>$2.58B, up approximately 112% YoY, beating the ~$2.56B consensus.</dd></div>
+      <div class="metric"><dt>Gross / operating margin</dt><dd class="unavailable">GAAP gross margin unavailable for this quarter. Adjusted operating income was $128M (~5% margin); adjusted EBITDA margin 59%.</dd></div>
+      <div class="metric"><dt>Net income &amp; EPS</dt><dd>GAAP net loss $626M (vs. $290M loss a year ago), driven by $640M in net interest expense. GAAP loss per share $1.14, better than the $1.41 loss expected.</dd></div>
+      <div class="metric"><dt>Free cash flow</dt><dd>Negative $5.7B, reflecting ~$6.42B in capital expenditure during the quarter.</dd></div>
+      <div class="metric"><dt>Cash &amp; debt</dt><dd>Cash, restricted cash &amp; marketable securities $6.9B; total principal debt approximately $35.55B.</dd></div>
+      <div class="metric"><dt>Stock performance</dt><dd>Ranged from the low $60s to above $117 intraquarter, pulling back to roughly $93 by August 18. Not meaningful forward P/E given current unprofitability.</dd></div>
+    </dl>
+    <div class="note-block">
+      <h4>Guidance &amp; commentary</h4>
+      <p>Q3 2026 revenue guided to $3.45B&ndash;$3.6B; full-year 2026 revenue guidance raised to $12.4B&ndash;$13.2B. Management pointed to a revenue backlog near $104B (+246% YoY) and roughly $25B in new commitments added early in Q3.</p>
+      <p class="sentiment">Currently seeing heightened retail investor and social-media discussion, with active debate over growth and backlog strength versus leverage and spending levels.</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>Compiled from company press releases, SEC filings, and public financial reporting. Figures may be restated by companies after initial release. This page updates on the 1st and 15th of each month.</p>
+  </footer>
+</div>
+</body>
+</html>
